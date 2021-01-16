@@ -1,0 +1,7 @@
+docker pull mysql
+
+docker run --detach --name mysql-iw-library -e MYSQL_ROOT_PASSWORD=root --publish 6603:3306 -d mysql:8.0.22
+
+docker stop mysql-iw-library
+
+docker start mysql-iw-library
