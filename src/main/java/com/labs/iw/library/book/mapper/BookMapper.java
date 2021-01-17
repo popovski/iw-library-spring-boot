@@ -2,11 +2,8 @@ package com.labs.iw.library.book.mapper;
 
 import com.labs.iw.library.book.domain.Book;
 import com.labs.iw.library.book.dto.BookPojo;
+import com.labs.iw.library.infrastructure.mapper.GeneralMapper;
 
-public interface BookMapper {
-	
-	public BookPojo entityToDto (Book book);
-	
-	public Book dtoToEntity(BookPojo bookDto);
+public interface BookMapper extends GeneralMapper<BookPojo, Book> {
 	
 }

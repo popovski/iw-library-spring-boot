@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.labs.iw.library.book.domain.Book;
+import com.labs.iw.library.book.dto.BookPojo;
 import com.labs.iw.library.book.service.BookService;
 import com.labs.iw.library.infrastructure.Endpoints;
 
@@ -18,7 +18,7 @@ public class BookController {
 	BookService bookService;
 	
 	@GetMapping("/{uuid}")
-	public Book findByUuid(@PathVariable(value = "uuid") String uuid){
+	public BookPojo findByUuid(@PathVariable(value = "uuid") String uuid){
 		return bookService.findByUuid(uuid);
 	}
 }

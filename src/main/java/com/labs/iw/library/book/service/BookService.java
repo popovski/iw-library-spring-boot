@@ -2,12 +2,12 @@ package com.labs.iw.library.book.service;
 
 import org.springframework.stereotype.Service;
 
-import com.labs.iw.library.book.domain.Book;
+import com.labs.iw.library.book.dto.BookPojo;
 
 @Service
 public interface BookService {
 
-	public Book findById(Long id);
+	public BookPojo findById(Long id);
 
-	public Book findByUuid(String uuid);
+	public BookPojo findByUuid(String uuid);
 }
