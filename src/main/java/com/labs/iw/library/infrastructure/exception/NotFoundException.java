@@ -1,4 +1,4 @@
-package com.labs.iw.library.exception;
+package com.labs.iw.library.infrastructure.exception;
 
 public class NotFoundException extends RuntimeException {
 
@@ -6,9 +6,6 @@ public class NotFoundException extends RuntimeException {
 		super();
 	}
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public NotFoundException(String message, Throwable cause) {

@@ -8,16 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.labs.iw.library.book.domain.Book;
 import com.labs.iw.library.book.service.BookService;
+import com.labs.iw.library.infrastructure.Endpoints;
 
 @RestController
-@RequestMapping("/book")
+@RequestMapping(Endpoints.BOOK)
 public class BookController {
 	
 	@Autowired
 	BookService bookService;
 	
-	@GetMapping("/{id}")
-	public Book findById(@PathVariable(value = "id") Long id){
-		return bookService.findById(id);
+	@GetMapping("/{uuid}")
+	public Book findByUuid(@PathVariable(value = "uuid") String uuid){
+		return bookService.findByUuid(uuid);
 	}
 }

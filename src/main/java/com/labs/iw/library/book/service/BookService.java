@@ -10,4 +10,6 @@ import com.labs.iw.library.book.domain.Book;
 public interface BookService {
 
 	public Book findById(Long id);
+
+	public Book findByUuid(String uuid);
 }
