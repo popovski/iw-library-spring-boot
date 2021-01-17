@@ -1,4 +1,4 @@
-package com.labs.iw.library.infrastructure.exception.controllerAdvice;
+package com.labs.iw.library.infrastructure.exception.controlleradvice;
 
 import java.util.Date;
 
@@ -32,7 +32,7 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
 		String errorMessageDescription = nfe.getLocalizedMessage();
 
 		if (errorMessageDescription == null)
-			errorMessageDescription = nfe.getLocalizedMessage().toString();
+			errorMessageDescription = nfe.getMessage();
 
 		ExceptionResponse exceptionResponse = new ExceptionResponse();
 

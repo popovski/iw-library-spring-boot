@@ -13,8 +13,11 @@ import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -35,5 +38,4 @@ public class BaseEntity implements Serializable {
 		uuid = UUID.randomUUID().toString().replace("-", "");
 		creationDateTime = Date.from(java.time.ZonedDateTime.now(ZoneOffset.UTC).toInstant());
 	}
-
 }

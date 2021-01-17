@@ -3,8 +3,6 @@ package com.labs.iw.library.book.service.impl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.labs.iw.library.book.domain.Book;
@@ -22,10 +20,13 @@ public class BookServiceImpl implements BookService{
 
 	@Override
 	public Book findById(Long id) {
-		// TODO implement mapper
-		Optional<Book> optional = bookRepository.findById(id);
+		Optional<Book> optionalBook = bookRepository.findById(id);
 		
-		return optional.get();
+		if (!optionalBook.isPresent()) {
+			log.error("Resource Book with id {} is not found", id);
+			throw new NotFoundException("Resource Book not found");
+		}
+		return optionalBook.get();
 	}
 	// TODO add java doc commnets	
 	@Override
