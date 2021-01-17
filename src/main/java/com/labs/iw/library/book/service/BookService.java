@@ -1,10 +1,10 @@
-package com.library.service;
+package com.labs.iw.library.book.service;
 
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.library.model.Book;
+import com.labs.iw.library.book.domain.Book;
 
 @Service
 public interface BookService {

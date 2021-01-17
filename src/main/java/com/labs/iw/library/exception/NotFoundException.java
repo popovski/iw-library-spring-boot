@@ -1,4 +1,4 @@
-package com.library.exception;
+package com.labs.iw.library.exception;
 
 public class NotFoundException extends RuntimeException {
 

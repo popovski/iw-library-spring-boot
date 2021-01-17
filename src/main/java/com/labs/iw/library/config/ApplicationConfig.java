@@ -1,4 +1,4 @@
-package com.library.config;
+package com.labs.iw.library.config;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;

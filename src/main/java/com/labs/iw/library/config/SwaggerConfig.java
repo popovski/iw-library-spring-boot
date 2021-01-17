@@ -1,4 +1,4 @@
-package com.library.config;
+package com.labs.iw.library.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

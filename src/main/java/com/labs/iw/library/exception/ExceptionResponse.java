@@ -1,4 +1,4 @@
-package com.library.exception;
+package com.labs.iw.library.exception;
 
 import java.time.LocalDate;
 

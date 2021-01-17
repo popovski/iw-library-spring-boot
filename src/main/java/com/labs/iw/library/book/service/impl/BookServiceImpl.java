@@ -1,4 +1,4 @@
-package com.library.service.impl;
+package com.labs.iw.library.book.service.impl;
 
 import java.util.Optional;
 
@@ -7,9 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.library.model.Book;
-import com.library.repository.BookRepository;
-import com.library.service.BookService;
+import com.labs.iw.library.book.domain.Book;
+import com.labs.iw.library.book.repository.BookRepository;
+import com.labs.iw.library.book.service.BookService;
 @Service
 public class BookServiceImpl implements BookService{
 

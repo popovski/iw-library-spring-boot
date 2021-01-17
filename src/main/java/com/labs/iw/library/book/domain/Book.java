@@ -1,9 +1,10 @@
-package com.library.model;
+package com.labs.iw.library.book.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import com.library.infrastructure.domain.BaseEntity;
+
+import com.labs.iw.library.infrastructure.domain.BaseEntity;
 import com.sun.istack.NotNull;
 
 import lombok.Data;

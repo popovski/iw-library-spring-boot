@@ -1,4 +1,4 @@
-package com.library.model.dto;
+package com.labs.iw.library.book.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -13,7 +13,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.sun.istack.NotNull;
 
-public class BookDTO implements Serializable {
+public class BookPojo implements Serializable {
 	
 	
 	@Id

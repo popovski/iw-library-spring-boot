@@ -1,4 +1,4 @@
-package com.library.controller;
+package com.labs.iw.library.book.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.library.model.Book;
-import com.library.service.BookService;
+import com.labs.iw.library.book.domain.Book;
+import com.labs.iw.library.book.service.BookService;
 
 @RestController
 @RequestMapping("/book")
