@@ -6,6 +6,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Endpoints {
 	public static final String BASE = "/api/";
-	public static final String BOOK = BASE + "book/";
+	public static final String BOOKS = BASE + "books/";
 	
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.labs.iw.library.infrastructure.exception.NotFoundException;
+import com.labs.iw.library.infrastructure.exception.ResourceNotFoundException;
 import com.labs.iw.library.infrastructure.exception.pojo.ExceptionResponse;
 
 @ControllerAdvice
@@ -26,8 +26,8 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
 	}
 
-	@ExceptionHandler(value = NotFoundException.class)
-	public final ResponseEntity<ExceptionResponse> handleNotFoundException(NotFoundException nfe, WebRequest request) {
+	@ExceptionHandler(value = ResourceNotFoundException.class)
+	public final ResponseEntity<ExceptionResponse> handleNotFoundException(ResourceNotFoundException nfe, WebRequest request) {
 
 		String errorMessageDescription = nfe.getLocalizedMessage();
 
