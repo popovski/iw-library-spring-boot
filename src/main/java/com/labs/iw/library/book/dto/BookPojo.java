@@ -1,12 +1,14 @@
 package com.labs.iw.library.book.dto;
 
-import com.labs.iw.library.infrastructure.pojo.BasePojo;
-import lombok.Getter;
-import lombok.Setter;
+import java.util.Date;
 
-@Getter
-@Setter
+import com.labs.iw.library.infrastructure.pojo.BasePojo;
+
+import lombok.Data;
+
+@Data
 public class BookPojo extends BasePojo {
 	private String title;
 	private String description;
+	private Date modifiedOn;
 }

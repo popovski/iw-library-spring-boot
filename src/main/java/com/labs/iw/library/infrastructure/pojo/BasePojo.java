@@ -8,5 +8,5 @@ import lombok.Setter;
 @Setter
 public class BasePojo {
 	private String uuid;
-	private Date creationDateTime;
+	private Date createdOn;
 }

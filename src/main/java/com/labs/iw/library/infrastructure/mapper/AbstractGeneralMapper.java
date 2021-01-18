@@ -1,33 +1,20 @@
 package com.labs.iw.library.infrastructure.mapper;
 
-
-
+import java.util.List;
+import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import com.labs.iw.library.book.domain.Book;
-import com.labs.iw.library.book.dto.BookPojo;
-import com.labs.iw.library.book.mapper.BookMapper;
+public abstract class AbstractGeneralMapper {
 
-public abstract class AbstractGeneralMapper implements BookMapper{
-	@Autowired
-	ModelMapper modelMapper;
-	
-	@Override
-	public BookPojo entityToDto (Book book) {		
-		
-		BookPojo bookDTO = modelMapper.map(book, BookPojo.class);
-		return bookDTO;
-		
+	public ModelMapper modelMapper;
+	public AbstractGeneralMapper(ModelMapper modelMapper) {
+		this.modelMapper = modelMapper;
 	}
 	
-	@Override
-	public Book dtoToEntity(BookPojo bookDto) {		
-		
-		Book book = modelMapper.map(bookDto, Book.class);	
-		return book;
-		
+	public <S, T> List<T> mapList(List<S> source, Class<T> targetClass) {
+	    return source
+	      .stream()
+	      .map(element -> modelMapper.map(element, targetClass))
+	      .collect(Collectors.toList());
 	}
-	
 }

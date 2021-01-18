@@ -27,15 +27,15 @@ public class BaseEntity implements Serializable {
 	private long id;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "CREATIONDATETIME", insertable = true, updatable = false)
-	private Date creationDateTime;
+	@Column(name = "created_on", insertable = true, updatable = false)
+	private Date createdOn;
 
-	@Column(name = "UUID", updatable = false)
+	@Column(name = "uuid", updatable = false)
 	private String uuid;
 
 	@PrePersist
 	public void init() {
 		uuid = UUID.randomUUID().toString().replace("-", "");
-		creationDateTime = Date.from(java.time.ZonedDateTime.now(ZoneOffset.UTC).toInstant());
+		createdOn = Date.from(java.time.ZonedDateTime.now(ZoneOffset.UTC).toInstant());
 	}
 }
