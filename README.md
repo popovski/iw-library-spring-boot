@@ -12,7 +12,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-* Get the project from GIT "git clone <TODO>"
+* Get the project from GIT "git clone https://github.com/popovski/iw-library-spring-boot"
 * Set datasource url of your MYSQL DB application.properties -> spring.datasource.url
 * Set mysql user value into application.properties -> spring.datasource.username
 * Set mysql user password value into application.properties -> spring.datasource.password
