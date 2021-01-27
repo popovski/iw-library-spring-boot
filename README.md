@@ -35,23 +35,24 @@ These instructions will get you a copy of the project up and running on your loc
 ## Demo
 
 After you start the application the server will listen on port 8090
-* Get all books
+* Get all books <br />
 HTTP GET localhost:8090/api/books/
-* Create new book
-HTTP POST localhost:8090/api/books/
-Payload Json Body
+* Create new book <br />
+HTTP POST localhost:8090/api/books/ <br />
+Payload Json Body <br />
 {
    "title": "NEW TITLE",
    "description": "NEW DESCRIPTION"
 }
-* Update existing book
-HTTP PUT localhost:8090/api/books/<UUID> - comment replace UUID with existing book UUID
+* Update existing book <br />
+HTTP PUT localhost:8090/api/books/<UUID> - comment replace UUID with existing book UUID <br />
 {
    "title": "UPDATE TITLE",
    "description": "UPDATE DESCRIPTION"
 }
-* Delete Resource
-localhost:8090/api/books/<UUID> - comment replace UUID with existing book UUID
+<br />
+* Delete Resource <br />
+localhost:8090/api/books/<UUID> - comment replace UUID with existing book UUID <br />
 
 ## Authors
 
