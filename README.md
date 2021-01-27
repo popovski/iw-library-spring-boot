@@ -46,11 +46,12 @@ Payload Json Body <br />
 }
 * Update existing book <br />
 HTTP PUT localhost:8090/api/books/<UUID> - comment replace UUID with existing book UUID <br />
+Payload Json Body <br />
 {
    "title": "UPDATE TITLE",
    "description": "UPDATE DESCRIPTION"
 }
-<br />
+
 * Delete Resource <br />
 localhost:8090/api/books/<UUID> - comment replace UUID with existing book UUID <br />
 
