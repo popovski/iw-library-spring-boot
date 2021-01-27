@@ -1,3 +1,8 @@
+/* CRETE database iw_library */
+CREATE DATABASE `iw_library` DEFAULT CHARACTER SET utf8;
+
+USE `iw_library`;
+
 /* CRETE TABLE BOOK */
 
 CREATE TABLE `book` (
@@ -10,5 +15,4 @@ CREATE TABLE `book` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `uuid_UNIQUE` (`uuid`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB AUTO_INCREMENT=1;
