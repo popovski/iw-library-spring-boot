@@ -6,6 +6,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
-      - "3306:3306"
+      - "6603:3306"
     volumes:
       - ./src/main/resources/sql/ddl.sql:/docker-entrypoint-initdb.d/ddl.sql
