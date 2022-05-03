@@ -35,7 +35,7 @@ public class BaseEntity implements Serializable {
 
 	@PrePersist
 	public void init() {
-		uuid = UUID.randomUUID().toString().replace("-", "");
+		uuid = UUID.randomUUID().toString();
 		createdOn = Date.from(java.time.ZonedDateTime.now(ZoneOffset.UTC).toInstant());
 	}
 }

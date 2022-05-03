@@ -3,9 +3,11 @@ version: '2.1'
 services:
   mysql:
     image: mysql
+    container_name: mysql-iw-library
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
       - "6603:3306"
     volumes:
       - ./src/main/resources/sql/ddl.sql:/docker-entrypoint-initdb.d/ddl.sql
+      - ./src/main/resources/sql/insert.sql:/docker-entrypoint-initdb.d/insert.sql
