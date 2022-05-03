@@ -1,0 +1,11 @@
+version: '2.1'
+
+services:
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./src/main/resources/sql/ddl.sql:/docker-entrypoint-initdb.d/ddl.sql
