@@ -23,7 +23,7 @@ These instructions will get you a copy of the project up and running on your loc
 * java -jar .\target\iw-labs-crud-library-0.0.1-SNAPSHOT.jar
 
 ### Database Setup (using docker compose docker-compose.yml)
-docker compose up
+docker compose up -d
 
 ## Running the tests
 
