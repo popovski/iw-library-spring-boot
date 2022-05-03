@@ -2,7 +2,9 @@ version: '2.1'
 
 services:
   mysql:
-    image: mysql
+    image: mysql:8.0.29
+    tty: true
+    stdin_open: true
     container_name: mysql-iw-library
     environment:
       MYSQL_ROOT_PASSWORD: root
