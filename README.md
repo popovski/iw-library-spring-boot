@@ -35,6 +35,12 @@ These instructions will get you a copy of the project up and running on your loc
 ## Demo
 
 After you start the application the server will listen on port 8090
+
+Swagger documentation
+http://localhost:8090/swagger-ui.html
+
+Helpfull links
+
 * Get all books <br />
 HTTP GET localhost:8090/api/books/
 * Create new book <br />
