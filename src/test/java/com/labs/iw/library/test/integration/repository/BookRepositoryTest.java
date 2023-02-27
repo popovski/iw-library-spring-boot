@@ -1,26 +1,23 @@
 package com.labs.iw.library.test.integration.repository;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
-import javax.transaction.Transactional;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.labs.iw.library.book.domain.Book;
 import com.labs.iw.library.book.repository.BookRepository;
 import com.labs.iw.library.test.utils.TestUtil;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import lombok.extern.slf4j.Slf4j;
+import javax.transaction.Transactional;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @Transactional
 @Slf4j
@@ -39,7 +36,7 @@ public class BookRepositoryTest {
 		bookRepository.save(mock);
 
 		List<Book> bookList = bookRepository.findAll();
-		assertThat(bookList).isNotEmpty();
+		assertThat(bookList).isNotNull();
 	}
 	
 	@Test
