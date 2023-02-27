@@ -18,6 +18,8 @@ import com.labs.iw.library.book.dto.BookPojo;
 import com.labs.iw.library.book.service.BookService;
 import com.labs.iw.library.infrastructure.Endpoints;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(Endpoints.BOOKS)
 public class BookController {
@@ -36,13 +38,13 @@ public class BookController {
 
 	@PostMapping
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public BookPojo createBook(@RequestBody BookPojo requestBookPojo) {
+	public BookPojo createBook(@Valid @RequestBody BookPojo requestBookPojo) {
 		return bookService.createBook(requestBookPojo);
 	}
 
 	@PutMapping("/{uuid}")
 	@ResponseStatus(value = HttpStatus.OK)
-	public BookPojo updateBook(@PathVariable(value = "uuid") String uuid, @RequestBody BookPojo requestBookPojo) {
+	public BookPojo updateBook(@PathVariable(value = "uuid") String uuid, @Valid @RequestBody BookPojo requestBookPojo) {
 		return bookService.updateBook(uuid, requestBookPojo);
 	}
 	
