@@ -20,11 +20,9 @@ import lombok.Setter;
 public class Book extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
-	@NotNull
 	@Column(name = "title")
 	private String title;
-	
-	@NotNull
+
 	@Column(name = "description", length = 5000)
 	private String description;
 	
