@@ -6,13 +6,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.labs.iw.library.book.domain.Book;
 import com.labs.iw.library.book.repository.BookRepository;
@@ -20,7 +17,6 @@ import com.labs.iw.library.test.utils.TestUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
 @Slf4j

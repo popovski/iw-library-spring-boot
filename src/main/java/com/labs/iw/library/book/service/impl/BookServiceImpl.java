@@ -1,23 +1,17 @@
 package com.labs.iw.library.book.service.impl;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import javax.transaction.Transactional;
-
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.labs.iw.library.book.domain.Book;
 import com.labs.iw.library.book.dto.BookPojo;
 import com.labs.iw.library.book.mapper.BookMapper;
 import com.labs.iw.library.book.repository.BookRepository;
 import com.labs.iw.library.book.service.BookService;
 import com.labs.iw.library.infrastructure.exception.ResourceNotFoundException;
-
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Slf4j

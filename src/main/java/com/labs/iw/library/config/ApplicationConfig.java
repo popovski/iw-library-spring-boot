@@ -3,8 +3,7 @@ package com.labs.iw.library.config;
 import java.util.Date;
 import java.util.TimeZone;
 
-import javax.annotation.PostConstruct;
-
+import jakarta.annotation.PostConstruct;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
