@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -30,16 +31,14 @@ public class BookServiceImpl implements BookService {
 			log.error("Resource Book with id {} is not found", id);
 			return new ResourceNotFoundException("Resource Book not found");
 		});
-		;
-
-		return bookMapper.entityToDto(bookEntity);
+		return bookMapper.toDtoToEntity(bookEntity);
 	}
 	
 	@Override
 	public BookPojo getByUuid(String uuid) {
 		log.debug("Execute getByUuid with parameter {}", uuid);
-		
-		return bookMapper.entityToDto(findByUuid(uuid));
+
+		return bookMapper.toDtoToEntity(findByUuid(uuid));
 	}
 	
 	public Book findByUuid(String uuid) {
@@ -52,26 +51,29 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public List<BookPojo> getAll() {
-		return bookMapper.mapList(bookRepository.findAll(), BookPojo.class);
+		return bookMapper.fromEntityToDtoList(bookRepository.findAll());
 	}
 
 	@Override
 	public BookPojo createBook(BookPojo bookPojo) {
 		log.debug("Execute createBook with parameters ", bookPojo);
-		Book transientBook = bookMapper.dtoToEntity(bookPojo);
+		Book transientBook = bookMapper.toEntityToDto(bookPojo);
 		Book persistedBook = bookRepository.save(transientBook);
 
-		return bookMapper.entityToDto(persistedBook);
+		return bookMapper.toDtoToEntity(persistedBook);
 	}
 
 	@Override
-	public BookPojo updateBook(String uuid, BookPojo bookPojo) {
-		log.debug("Execute updateBook with parameters {}", bookPojo);
+	public BookPojo updateBook(String uuid, BookPojo dto) {
+		log.debug("Execute updateBook with parameters {}", dto);
 		Book persistedBook = findByUuid(uuid);
 		// map the bookPojo into PersistedBook
-		bookMapper.mapRequestedFieldForUpdate(persistedBook, bookPojo);
+		//bookMapper.mapRequestedFieldForUpdate(persistedBook, bookPojo);
+		persistedBook.setTitle(dto.getTitle());
+		persistedBook.setDescription(dto.getDescription());
+		persistedBook.setModifiedOn(new Date());
 
-		return bookMapper.entityToDto(bookRepository.saveAndFlush(persistedBook));
+		return bookMapper.toDtoToEntity(bookRepository.saveAndFlush(persistedBook));
 	}
 
 	@Override
