@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.labs.iw.library.book.dto.BookPojo;
+import com.labs.iw.library.book.dto.BookDto;
 import com.labs.iw.library.book.service.BookService;
 import com.labs.iw.library.infrastructure.Endpoints;
 
@@ -25,25 +25,25 @@ public class BookController {
 	BookService bookService;
 
 	@GetMapping("/{uuid}")
-	public BookPojo getByUuid(@PathVariable(value = "uuid") String uuid) {
+	public BookDto getByUuid(@PathVariable(value = "uuid") String uuid) {
 		return bookService.getByUuid(uuid);
 	}
 
 	@GetMapping
-	public List<BookPojo> getAll() {
+	public List<BookDto> getAll() {
 		return bookService.getAll();
 	}
 
 	@PostMapping
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public BookPojo createBook(@RequestBody BookPojo requestBookPojo) {
-		return bookService.createBook(requestBookPojo);
+	public BookDto createBook(@RequestBody BookDto requestBookDto) {
+		return bookService.createBook(requestBookDto);
 	}
 
 	@PutMapping("/{uuid}")
 	@ResponseStatus(value = HttpStatus.OK)
-	public BookPojo updateBook(@PathVariable(value = "uuid") String uuid, @RequestBody BookPojo requestBookPojo) {
-		return bookService.updateBook(uuid, requestBookPojo);
+	public BookDto updateBook(@PathVariable(value = "uuid") String uuid, @RequestBody BookDto requestBookDto) {
+		return bookService.updateBook(uuid, requestBookDto);
 	}
 	
 	@DeleteMapping("/{uuid}")

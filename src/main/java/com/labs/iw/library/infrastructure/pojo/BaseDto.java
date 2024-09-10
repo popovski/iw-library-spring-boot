@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class BasePojo {
+public class BaseDto {
 	private String uuid;
 	private Date createdOn;
 }

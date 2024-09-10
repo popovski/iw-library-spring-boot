@@ -3,7 +3,7 @@ package com.labs.iw.library.test.utils;
 import java.util.Date;
 
 import com.labs.iw.library.book.domain.Book;
-import com.labs.iw.library.book.dto.BookPojo;
+import com.labs.iw.library.book.dto.BookDto;
 
 public class TestUtil {
 	public static Book createMockBookEntity() {
@@ -15,8 +15,8 @@ public class TestUtil {
 		return mock;
 	}
 	
-	public static BookPojo createMockBookPojo(String title, String description) {
-		BookPojo mock = new BookPojo();
+	public static BookDto createMockBookPojo(String title, String description) {
+		BookDto mock = new BookDto();
 		mock.setTitle(title);
 		mock.setDescription(description);
 		

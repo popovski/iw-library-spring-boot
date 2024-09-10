@@ -1,7 +1,7 @@
 package com.labs.iw.library.book.service.impl;
 
 import com.labs.iw.library.book.domain.Book;
-import com.labs.iw.library.book.dto.BookPojo;
+import com.labs.iw.library.book.dto.BookDto;
 import com.labs.iw.library.book.mapper.BookMapper;
 import com.labs.iw.library.book.repository.BookRepository;
 import com.labs.iw.library.book.service.BookService;
@@ -26,7 +26,7 @@ public class BookServiceImpl implements BookService {
 	BookMapper bookMapper;
 
 	@Override
-	public BookPojo findById(Long id) {
+	public BookDto findById(Long id) {
 		Book bookEntity = bookRepository.findById(id).orElseThrow(() -> {
 			log.error("Resource Book with id {} is not found", id);
 			return new ResourceNotFoundException("Resource Book not found");
@@ -35,7 +35,7 @@ public class BookServiceImpl implements BookService {
 	}
 	
 	@Override
-	public BookPojo getByUuid(String uuid) {
+	public BookDto getByUuid(String uuid) {
 		log.debug("Execute getByUuid with parameter {}", uuid);
 
 		return bookMapper.toDtoToEntity(findByUuid(uuid));
@@ -50,21 +50,21 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public List<BookPojo> getAll() {
+	public List<BookDto> getAll() {
 		return bookMapper.fromEntityToDtoList(bookRepository.findAll());
 	}
 
 	@Override
-	public BookPojo createBook(BookPojo bookPojo) {
-		log.debug("Execute createBook with parameters ", bookPojo);
-		Book transientBook = bookMapper.toEntityToDto(bookPojo);
+	public BookDto createBook(BookDto bookDto) {
+		log.debug("Execute createBook with parameters ", bookDto);
+		Book transientBook = bookMapper.toEntityToDto(bookDto);
 		Book persistedBook = bookRepository.save(transientBook);
 
 		return bookMapper.toDtoToEntity(persistedBook);
 	}
 
 	@Override
-	public BookPojo updateBook(String uuid, BookPojo dto) {
+	public BookDto updateBook(String uuid, BookDto dto) {
 		log.debug("Execute updateBook with parameters {}", dto);
 		Book persistedBook = findByUuid(uuid);
 		// map the bookPojo into PersistedBook

@@ -13,6 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.ArrayList;
 import java.util.List;
 
+import com.labs.iw.library.book.dto.BookDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -22,7 +23,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.labs.iw.library.book.dto.BookPojo;
 import com.labs.iw.library.book.service.BookService;
 import com.labs.iw.library.infrastructure.Endpoints;
 import com.labs.iw.library.test.utils.TestUtil;
@@ -47,14 +47,14 @@ public class BookControllerTest {
 
 	@Test
 	public void getAllBooksTest_success() {
-		List<BookPojo> mockBookPojoList = new ArrayList<>();
-		BookPojo mock1 = TestUtil.createMockBookPojo("mock title 1", "mock description 1");
-		BookPojo mock2 = TestUtil.createMockBookPojo("mock title 2", "mock description 2");
+		List<BookDto> mockBookDtoList = new ArrayList<>();
+		BookDto mock1 = TestUtil.createMockBookPojo("mock title 1", "mock description 1");
+		BookDto mock2 = TestUtil.createMockBookPojo("mock title 2", "mock description 2");
 		
-		mockBookPojoList.add(mock1);
-		mockBookPojoList.add(mock2);
+		mockBookDtoList.add(mock1);
+		mockBookDtoList.add(mock2);
 		
-		when(this.bookService.getAll()).thenReturn(mockBookPojoList);
+		when(this.bookService.getAll()).thenReturn(mockBookDtoList);
 
 		try {
 			this.mockMvc.perform(get(Endpoints.BOOKS))
@@ -73,7 +73,7 @@ public class BookControllerTest {
 	@Test
 	public void getByUuidTest_success() {
 		String mockUuid = "mockUUID";
-		BookPojo mock1 = TestUtil.createMockBookPojo("mock title 1", "mock description 1");
+		BookDto mock1 = TestUtil.createMockBookPojo("mock title 1", "mock description 1");
 				
 		when(this.bookService.getByUuid(mockUuid)).thenReturn(mock1);
 
@@ -92,8 +92,8 @@ public class BookControllerTest {
 	
 	@Test
 	public void createBookTest_success() {
-		BookPojo mock = TestUtil.createMockBookPojo("mock title 1", "mock description 1");
-		BookPojo createdMock = TestUtil.createMockBookPojo("mock title 1", "mock description 1");
+		BookDto mock = TestUtil.createMockBookPojo("mock title 1", "mock description 1");
+		BookDto createdMock = TestUtil.createMockBookPojo("mock title 1", "mock description 1");
 		
 		when(this.bookService.createBook(mock)).thenReturn(createdMock);
 
@@ -117,8 +117,8 @@ public class BookControllerTest {
 	@Test
 	public void updateBookTest_success() {
 		String mockUuid = "mockUUID";
-		BookPojo mock = TestUtil.createMockBookPojo("mock title 1", "mock description 1");
-		BookPojo updatedMock = TestUtil.createMockBookPojo("mock title 1", "mock description 1");
+		BookDto mock = TestUtil.createMockBookPojo("mock title 1", "mock description 1");
+		BookDto updatedMock = TestUtil.createMockBookPojo("mock title 1", "mock description 1");
 		
 		when(this.bookService.updateBook(mockUuid, mock)).thenReturn(updatedMock);
 
